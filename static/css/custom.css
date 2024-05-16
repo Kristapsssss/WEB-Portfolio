@@ -1,0 +1,71 @@
+.about-top {
+
+    background-image: linear-gradient(to top, #fff 0%, rgba(105, 90, 166, 0.35) 99%, rgba(105, 90, 166, 0.5) 100%);
+    color: #212529;
+}
+
+
+.about-bottom {
+
+    background-image: linear-gradient(to bottom, #fff 0%, rgba(105, 90, 166, 0.35) 99%, rgba(105, 90, 166, 0.5) 100%);
+    color: #212529;
+}
+
+
+.custom-title {
+    box-sizing: border-box;
+    color: rgb(105, 90, 166);
+    display: block;
+    font-family: "Baloo Paaji", cursive;
+    font-size: 6rem;
+    font-weight: 500;
+    height: 26.3438px;
+    line-height: 26.34px;
+    margin-block-end: 64px;
+    margin-block-start: 0px;
+    margin-bottom: 64px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+    margin-top: 0px;
+    text-align: left;
+    text-size-adjust: 100%;
+    unicode-bidi: isolate;
+    width: 380px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+.custom-list {
+    box-sizing: border-box;
+    color: rgb(105, 90, 166);
+    display: block;
+    font-family: "Baloo Paaji", cursive;
+    font-size: 0.9rem;
+    font-weight: 500;
+    height: 26.3438px;
+    line-height: 26.34px;
+    margin-block-end: 64px;
+    margin-block-start: 0px;
+    margin-bottom: 300px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+    margin-top: 0px;
+    text-align: left;
+    text-size-adjust: 100%;
+    unicode-bidi: isolate;
+    width: 380px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+/* Hide the image by default */
+.img-hide-on-small {
+    display: none;
+}
+
+/* Show the image on screens that are wider than 768px */
+@media screen and (min-width: 768px) {
+    .img-hide-on-small {
+        display: block;
+    }
+}

@@ -1,0 +1,282 @@
+{% include 'header.html' %}
+
+<!-- portfolio section -->
+<section class="section about-top" id="portfolio">
+    <div class="container text-center">
+        <br><br><br>
+        <h1 class="section-title mb-6">Data on Riga Rental Listings</h1>
+    </div>
+
+    <div class="centered-section" style="background-color: #E3DAE8; border-radius: 40px;">
+        <h1>Interactive Data Visualizations</h1>
+        <button class="toggle-btn" onclick="toggleIframe('visualization')">Unveil the Visuals</button>
+        <div>
+            <iframe id="visualization" class="iframe-container" src="/dash_visualization/" style="height: 1600px;"></iframe>
+        </div>
+
+        <h1>In-depth Data Analysis</h1>
+        <button class="toggle-btn" onclick="toggleIframe('analysis')">Crunch the Numbers</button>
+        <div>
+            <iframe id="analysis" class="iframe-container" src="/dash_analysis/" style="height: 2700px;"></iframe>
+        </div>
+
+        <h1>Rental Price Prediction Model</h1>
+        <button class="toggle-btn" onclick="toggleIframe('regression')">Forecast Fun</button>
+        <div>
+            <iframe id="regression" class="iframe-container" src="/dash_regression_model/" style="height: 1200px"></iframe>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 50px;">
+        <div class="project-summary">
+            <h2>Project Summary</h2>
+            <p>
+                <strong>Introduction</strong><br>
+                This project focuses on predicting rental prices in Riga, Latvia, using data scraped from ss.lv, the most popular marketplace in Latvia. The aim is to provide potential renters and landlords with insights into the rental market and predict rental prices based on various features of the listings.
+            </p>
+            <p>
+                <strong>Data Collection</strong><br>
+                The data was collected by web scraping rental listings from ss.lv. The dataset includes various attributes such as location, size, number of rooms, and additional amenities.
+            </p>
+            <p>
+                <strong>Data Cleaning</strong><br>
+                The collected data underwent thorough cleaning: removed duplicates and irrelevant listings, handled missing values by either imputing or removing them, and standardized formats for categorical data and numerical values.
+            </p>
+            <p>
+                <strong>Data Visualization and Analysis</strong><br>
+                Data visualizations were created to understand the distribution and relationships within the data: histograms and box plots to show the distribution of rental prices, scatter plots and correlation matrices to explore relationships between features and rental prices, and heatmaps to visualize the concentration of listings across different areas of Riga.
+            </p>
+            <p>
+                <strong>Price Prediction Model</strong><br>
+                A Linear Regression model was initially considered to predict rental prices based on the available features. However, due to insufficient data and poor performance (low R² and high MAE), a custom function was developed to predict rental prices. This custom function calculates the average price per square meter and applies premiums associated with different features such as location, rooms, and series.
+            </p>
+            <p>
+                <strong>Results</strong><br>
+                The custom function returned the following evaluation metrics: MAE of 234.54 (average difference between actual and predicted rental prices) and R² of 0.70 (proportion of variance in rental prices explained by the model/function). These results were better than those obtained from the regression models tried.
+            </p>
+            <p>
+                <strong>Conclusion</strong><br>
+                The project successfully demonstrates the ability to collect, clean, and analyze real-world data, and build a predictive model for rental prices. The custom function offers valuable insights into the factors influencing rental prices in Riga, aiding both renters and landlords in making informed decisions.
+            </p>
+            <p>
+                <strong>Visualizations and Code</strong><br>
+                The project includes various visualizations to illustrate the findings and the Python code used for data collection, cleaning, analysis, and model building. These elements are documented to ensure reproducibility and clarity for future users and reviewers.
+            </p>
+        </div>
+    </div>
+
+    <!-- Code Snippets Section -->
+    <div class="code-snippets">
+        <h1>Key Code Snippets</h1>
+        <div class="code-grid">
+            <div class="code-item">
+                <h2>Data Collection</h2>
+                <pre><code class="language-python">
+# Scrape Page Data
+
+def get_page_data(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+    all_tr = soup.find_all('tr')
+    listings = all_tr[5:-4]
+
+    data = []
+    for listing in listings:
+        details = listing.find_all('td')
+        if details:
+            posting = {
+                'Title': details[2].text.strip(),
+                'Location': details[3].text.strip(),
+                'Rooms': details[4].text.strip(),
+                'Size': details[5].text.strip(),
+                'Floor': details[6].text.strip(),
+                'Series': details[7].text.strip(),
+                'Price': details[8].text.strip()
+            }
+            data.append(posting)
+
+    return data
+
+# Loop Through All Pages
+
+def get_all_pages_data(url, page_number):
+    all_data = []
+    for page in range(1, page_number + 1):
+        page_url = f"{url}/page{page}.html"
+        print(f"Scraping page: {page}, the page url is: {page_url}")
+        page_data = get_page_data(page_url)
+        all_data += page_data
+    return all_data
+                </code></pre>
+            </div>
+
+            <div class="code-item">
+                <h2>Data Cleaning</h2>
+                <pre><code class="language-python">
+
+# Creating the district and address columns by splitting the 'Location' column,
+# example: 'Šampēteris-PleskodāleZalves 43' > 'Šampēteris-Pleskodāle', 'Zalves 43'
+
+def split_at_last_capitalized_letter(s):
+    # Regex to find the last capitalized letter (preceded by a non-capitalized letter) followed
+    # by at least 1 non-capitalized letter and any combination of letters, numbers, and characters
+    match = re.search(r'(.+[a-zāčēģīķļņšūž])([A-ZĀČĒĢĪĶĻŅŠŪŽ][\w\W]*)$', s)
+    if match:
+        district = match.group(1)
+        address = match.group(2)
+        return district, address
+    else:
+        # If no match is found, return the original string and an empty string
+        return s, 'N/A'
+
+for index, row in df_data.iterrows():
+  location_series = split_at_last_capitalized_letter(row['Location'])
+  df_data.loc[index, 'District'], df_data.loc[index, 'Address'] = location_series
+
+
+#Cleaning the Price Column
+
+def convert_price(price_str):
+  price_str = price_str.replace(',', '')
+
+  if 'dienā' in price_str:
+    price_per_day = re.findall(r'\d+', price_str)[0]
+    monthly_price = int(price_per_day) * 30
+  else:
+    monthly_price = re.findall(r'\d+', price_str)[0]
+  return int(monthly_price)
+
+df_data['Price'] = df_data['Price'].apply(convert_price)
+
+                </code></pre>
+            </div>
+
+
+            <div class="code-item">
+                <h2>Data Visualization</h2>
+                <pre><code class="language-python">
+# Update Figures Based on Dropdown Selections
+
+def update_visualizations(selected_district, selected_series):
+    filtered_data = df_data
+    if selected_district != 'all':
+        filtered_data = filtered_data[filtered_data['District'] == selected_district]
+    if selected_series != 'all':
+        filtered_data = filtered_data[filtered_data['Series'] == selected_series]
+
+# Scatter Mapbox
+
+    map_fig = px.scatter_mapbox(
+        filtered_data,
+        lat="Latitude",
+        lon="Longitude",
+        hover_name="Title",
+        hover_data={"District": True,
+                    "Price": True,
+                    "Rooms": True,
+                    "Size": True,
+                    "FullAddress": True,
+                    "Latitude": False,
+                    "Longitude": False},
+        color="Price",
+        color_continuous_scale=color_scale,
+        size="Price",
+        zoom=10,
+        height=600,
+    )
+    map_fig.update_layout(mapbox_style="open-street-map",
+                          margin={"r": 0, "t": 0, "l": 0, "b": 0},
+                          plot_bgcolor='#E3DAE8',
+                          paper_bgcolor='#E3DAE8')
+
+                </code></pre>
+            </div>
+
+
+            <div class="code-item">
+                <h2>Data Analysis</h2>
+                <pre><code class="language-python">
+# Calculate overall market statistic (mean or median)
+
+if selected_statistic == 'mean':
+    overall_stat = df_filtered['Price'].mean()
+    heading_text = 'Average Price Differences Across All Districts'
+else:  # median
+    overall_stat = df_filtered['Price'].median()
+    heading_text = 'Median Price Differences Across All Districts'
+
+# Calculate district-level statistics
+
+if selected_statistic == 'mean':
+    district_price_stats = df_filtered.groupby('District')['Price'].mean()
+else:  # median
+    district_price_stats = df_filtered.groupby('District')['Price'].median()
+
+overall_price_stat = overall_stat
+price_diff_percentage = ((district_price_stats - overall_price_stat) / overall_price_stat) * 100
+sorted_districts = price_diff_percentage.sort_values(ascending=False)
+
+# Note cheapest and most expensive districts
+
+cheapest_district = sorted_districts.idxmin()
+most_expensive_district = sorted_districts.idxmax()
+subheading_text = (f'Cheapest district is: {cheapest_district}.\n'
+                   f'Most expensive district is: {most_expensive_district}.')
+
+                </code></pre>
+            </div>
+
+            <div class="code-item">
+                <h2>Prediction Model</h2>
+                <pre><code class="language-python">
+# Calculate base price per square meter
+base_price_per_sqm = df_data['Price'].sum() / df_data['Size'].sum()
+
+# Calculate average price per square meter for each room count
+room_avg_price_per_sqm = df_data.groupby('Rooms').apply(lambda x: x['Price'].sum() / x['Size'].sum())
+rooms_premium_percentage_dict = (room_avg_price_per_sqm - base_price_per_sqm) / base_price_per_sqm
+
+# Calculate average price per square meter for each series
+series_avg_price_per_sqm = df_data.groupby('Series').apply(lambda x: x['Price'].sum() / x['Size'].sum())
+series_premium_percentage_dict = (series_avg_price_per_sqm - base_price_per_sqm) / base_price_per_sqm
+
+# Calculate average price per square meter for each district
+district_avg_price_per_sqm = df_data.groupby('District').apply(lambda x: x['Price'].sum() / x['Size'].sum())
+district_premium_percentage_dict = (district_avg_price_per_sqm - base_price_per_sqm) / base_price_per_sqm
+
+# Define the pricing function
+def calculate_rental_price(size, rooms, series, district):
+    base_price = size * base_price_per_sqm
+    room_premium_percentage = rooms_premium_percentage_dict.get(rooms, 0)
+    series_premium_percentage = series_premium_percentage_dict.get(series, 0)
+    district_premium_percentage = district_premium_percentage_dict.get(district, 0)
+
+    # Scale the premiums with the size
+    total_premium_percentage = room_premium_percentage + series_premium_percentage + district_premium_percentage
+    total_price = base_price * (1 + total_premium_percentage)
+    return total_price
+
+# Split the data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=90)
+
+# Generate predictions for the test set
+y_pred = X_test.apply(lambda row: calculate_rental_price(row['Size'], row['Rooms'], row['Series'], row['District']), axis=1)
+
+# Calculate MAE and R²
+mae = mean_absolute_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+                </code></pre>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GitHub Button Section -->
+    <div class="container text-center" style="margin-top: 50px;">
+        <a href="https://github.com/Kristapsssss" class="btn btn-primary" target="_blank">All code available on my GitHub</a>
+    </div>
+
+</section>
+
+{% include 'footer.html' %}

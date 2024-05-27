@@ -1,0 +1,189 @@
+# created by virtualenv automatically
+# System files
+.DS_Store
+
+# IDE/Editor files
+.idea/
+.vscode/
+
+# Python specific files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environment
+venv/
+.venv/
+
+# Log and temporary files
+*.log
+*.tmp
+
+# Build files
+build/
+dist/
+*.egg-info/
+*.egg
+
+
+# Package files
+*.tar.gz
+*.whl
+*.zip
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# PyCharm
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio Code
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# Java
+*.class
+
+# Ruby
+*.gem
+*.rbc
+*.rbo
+*.rbs
+*.gemspec
+.bundle
+/vendor/bundle
+/.config
+
+# Sass
+.sass-cache/
+
+# Gradle
+.gradle/
+
+# Android
+*.apk
+*.ap_
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# C++
+*.o
+*.out
+*.exe
+*.dll
+
+# Go
+*.cfg
+
+# Rust
+*.rlib
+
+# C#
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.lib
+*.sbr
+*.scc
+[Bb]in/
+[Oo]bj/
+Debug/
+Release/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+mdoc/
+doc/
+[Bb]uild/
+builds/
+*.sln.ide/
+*.userosscache
+*.sln.docstates
+
+
+# Eclipse
+*.classpath
+*.project
+*.settings/
+.metadata/
+
+# NetBeans
+nbproject/private/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Xcode
+*.pbxuser
+*.xcworkspace
+*.xcuserdatad
+*.xccheckout
+*.moved-aside
+
+# Swift Package Manager
+.build/
+
+# CocoaPods
+Pods/
+*.lock
+DerivedData/
+/.xcworkspace
+
+# Carthage
+/Carthage/Build/
+
+# Fastlane
+/fastlane/report.xml
+/fastlane/Preview.html
+

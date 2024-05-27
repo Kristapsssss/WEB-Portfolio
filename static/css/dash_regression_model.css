@@ -1,0 +1,243 @@
+.about-top {
+    background-image: linear-gradient(to top, #fff 0%, rgba(105, 90, 166, 0.35) 99%, rgba(105, 90, 166, 0.5) 100%);
+    color: #212529;
+}
+
+.about-bottom {
+    background-image: linear-gradient(to bottom, #fff 0%, rgba(105, 90, 166, 0.35) 99%, rgba(105, 90, 166, 0.5) 100%);
+    color: #212529;
+}
+
+.custom-title {
+    box-sizing: border-box;
+    color: rgb(105, 90, 166);
+    display: block;
+    font-family: "Baloo Paaji", cursive;
+    font-size: 6rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 64px;
+    text-align: left;
+}
+
+.custom-list {
+    box-sizing: border-box;
+    color: rgb(105, 90, 166);
+    display: block;
+    font-family: "Baloo Paaji", cursive;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 300px;
+    text-align: left;
+}
+
+/* Hide the image by default */
+.img-hide-on-small {
+    display: none;
+}
+
+/* Show the image on screens that are wider than 768px */
+@media screen and (min-width: 768px) {
+    .img-hide-on-small {
+        display: block;
+    }
+}
+
+.iframe-container {
+    width: 100%;
+    border: 3px dashed rgb(105, 90, 166);
+    border-radius: 10px;
+    display: none;
+    background-color: #E3DAE8;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #695AA6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* dropdown button hover effect */
+.css-2b097c-container:hover, .css-2b097c-container:focus, .css-2b097c-container:active {
+    background-color: #D1C4E9 !important;
+    border-color: #5E35B1 !important;
+}
+
+/* data-analysis table */
+.styled-table {
+    justify-content: center;
+    content-align: center;
+    width: 75%;
+    background-color: white;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 1rem;
+    text-align: left;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #E3DAE8;
+    font-size: 1rem;
+    color: black;
+}
+
+.styled-table thead tr {
+    background-color: rgb(99, 110, 250);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #c3bddb;
+}
+
+/* General styles */
+.main-div {
+    background-color: #E3DAE8;
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px;
+}
+
+.main-heading {
+    text-align: center;
+    font-family: 'Baloo Paaji', cursive;
+    font-size: 40px;
+    color: rgb(105, 90, 166);
+}
+
+/* Input container */
+.input-container {
+    background-color: rgb(105, 90, 166);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    border: 2px solid black;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.input-label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.dropdown {
+    width: 250px; /* Increased width to fit more text */
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    font-size: 16px; /* Adjusted font size for better readability */
+    font-weight: bold;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.input-field {
+    width: 50%;
+}
+
+.predict-button {
+    padding: 15px 30px;
+    background-color: #fff;
+    color: rgb(105, 90, 166);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.predict-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Output container */
+.output-container {
+    background-color: rgb(105, 90, 166);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    border: 2px solid black;
+}
+
+.predicted-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Visualization container */
+.visualization-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgb(105, 90, 166);
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.metrics-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.metrics-description-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.metric {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.metric-description {
+    font-size: 1rem;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}

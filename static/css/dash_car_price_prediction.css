@@ -1,0 +1,102 @@
+/* dash_car_price_prediction.css */
+.main-div {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: rgb(105, 90, 166);
+    border-radius: 20px;
+    color: white;
+}
+
+.main-heading {
+    text-align: center;
+    color: white;
+}
+
+.section-div {
+    margin-bottom: 40px;
+}
+
+.section-heading {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-field, .dropdown {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+}
+
+.predict-button {
+    padding: 10px 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.output-container {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+    color: white;
+    border-radius: 50px;
+    border: 2px solid white;
+}
+
+.visualization-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.metrics-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.metric {
+    font-size: 18px;
+    color: #555;
+}
+
+.metrics-description-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.metric-description {
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 10px auto;
+}

@@ -69,3 +69,260 @@
         display: block;
     }
 }
+
+.iframe-container {
+                width: 100%;
+                border: 3px dashed rgb(105, 90, 166);
+                border-radius: 10px;
+                display: none;
+                background-color: #E3DAE8;
+            }
+.toggle-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #695AA6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* dropdown button hover effect */
+.css-2b097c-container:hover, .css-2b097c-container:focus, .css-2b097c-container:active {
+    background-color: #D1C4E9 !important;
+    border-color: #5E35B1 !important;
+}
+
+/* data-analysis table */
+.styled-table {
+    justify-content: center;
+    content-align: center;
+    width: 25%;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+.styled-table th, .styled-table td {
+    padding: 5px 5px;
+    text-align: center;
+    text-align: center;
+    border: 2px solid #E3DAE8;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.styled-table th {
+    border: 2px solid #E3DAE8;
+}
+
+.styled-table tr:nth-child(even) {
+    border: 1px solid #695AA6;
+}
+
+.styled-table tr:hover {
+    background-color: #c3bddb;
+}
+
+
+/* General styles */
+.main-div {
+    background-color: #E3DAE8;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main-heading {
+    text-align: center;
+    font-family: 'Baloo Paaji', cursive;
+    font-size: 40px;
+    color: rgb(105, 90, 166);
+}
+
+/* Dropdown container */
+.dropdown-container {
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add gap between dropdowns */
+}
+
+.dropdown {
+    width: 250px; /* Increased width to fit more text */
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    font-size: 16px; /* Adjusted font size for better readability */
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Statistics div */
+.statistics-div {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* Stat box */
+.stat-box {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(105, 90, 166);
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 50px;
+    color: white;
+}
+
+.stat-heading {
+    font-family: 'Baloo Paaji', cursive;
+    font-size: 25px;
+}
+
+.stat-value {
+    font-size: 40px;
+}
+
+/* Columns container */
+.columns-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Column div */
+.column-div {
+    flex: 1;
+    padding: 20px;
+    background-color: rgb(105, 90, 166);
+    color: white;
+    border-radius: 50px;
+    border: 2px solid black;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Sub heading */
+.sub-heading {
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: 'Baloo Paaji', cursive;
+}
+
+/* Sub paragraph */
+.sub-paragraph {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Styled table */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table thead tr {
+    background-color: rgb(99, 110, 250);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) tr:nth-of-type(odd) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+/* Slider */
+.slider {
+    width: 66%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.slider-label {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.centered-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.centered-section h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.code-snippets {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.code-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.code-item {
+    flex: 1 1 45%;
+    max-width: 45%;
+    text-align: left;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 0px;
+}
+
+.code-item h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+pre {
+    overflow-x: auto;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+pre[class*=language-] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+    border-radius: 20px;
+}

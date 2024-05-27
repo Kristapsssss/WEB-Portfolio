@@ -3,6 +3,7 @@ from dash_app_visualizations import create_dash_app
 from dash_app_analysis import create_dash_app2
 from dash_app_prediction_model import create_dash_app3
 from latvia_car_price_prediction import create_dash_app4
+import os
 
 app = Flask(__name__)
 
@@ -38,4 +39,5 @@ dash_app3 = create_dash_app3(app)
 dash_app4 = create_dash_app4(app)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

@@ -27,9 +27,15 @@ def about():
 def riga_listings():
     return render_template('riga_listings.html')
 
+
 @app.route('/car_listings.html')
 def car_listings():
     return render_template('latvian_cars_price_prediction.html')
+
+
+@app.route('/uk_online_gambling.html')
+def uk_online_gambling():
+    return render_template('uk_online_gambling.html')
 
 
 # Initialize Dash app and associate it with the Flask server
